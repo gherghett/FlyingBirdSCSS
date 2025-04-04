@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="sky">
+        <img id="cute-bird" class="flyer with-trail" src="bird.png" alt="">
+    </div>
+    <div class="sky">
+        <img id="wild-bird" class="flyer with-trail" src="bird.png" alt="">
+    </div>
+</body>
+<script>
+    const elementsWithTrail = document.querySelectorAll('.with-trail');
+
+    elementsWithTrail.forEach(el => {
+        for (let i = 0; i < 9; i++) {
+            const trail = document.createElement('img');
+            trail.src = el.src; // copy the same image
+            trail.alt = el.alt;
+            trail.className = 'trail';
+
+            el.parentNode.insertBefore(trail, el.nextSibling);
+        }
+    });
+</script>
+    
+</html>

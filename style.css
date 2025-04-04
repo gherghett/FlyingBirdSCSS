@@ -1,0 +1,123 @@
+/*---Our Specifiv animations-----*/
+#cute-bird,
+#cute-bird ~ .trail {
+  animation-name: fly-around;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#wild-bird,
+#wild-bird ~ .trail {
+  animation-name: fly-wild;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+/*---------------*/
+.flyer { /* the bird*/
+  z-index: 10;
+  position: absolute;
+}
+
+.trail { /* all the followers */
+  position: absolute;
+}
+
+.trail:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0.9;
+  z-index: 9;
+}
+
+.trail:nth-child(3) {
+  animation-delay: 0.4s;
+  opacity: 0.8;
+  z-index: 8;
+}
+
+.trail:nth-child(4) {
+  animation-delay: 0.6s;
+  opacity: 0.7;
+  z-index: 7;
+}
+
+.trail:nth-child(5) {
+  animation-delay: 0.8s;
+  opacity: 0.6;
+  z-index: 6;
+}
+
+.trail:nth-child(6) {
+  animation-delay: 1s;
+  opacity: 0.5;
+  z-index: 5;
+}
+
+.trail:nth-child(7) {
+  animation-delay: 1.2s;
+  opacity: 0.4;
+  z-index: 4;
+}
+
+.trail:nth-child(8) {
+  animation-delay: 1.4s;
+  opacity: 0.3;
+  z-index: 3;
+}
+
+.trail:nth-child(9) {
+  animation-delay: 1.6s;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.trail:nth-child(10) {
+  animation-delay: 1.8s;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.trail:nth-child(11) {
+  animation-delay: 2s;
+  opacity: 0;
+  z-index: 0;
+}
+
+@keyframes fly-around {
+  20% {
+    transform: translate(200px, 200px);
+  }
+  60% {
+    transform: translate(50px, 170px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes fly-wild {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(100px, 199px);
+  }
+  50% {
+    transform: translate(200px, 100px);
+  }
+  80% {
+    transform: translate(50px, 50px);
+  }
+  90% {
+    transform: translate(200px, 25px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.sky {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+}/*# sourceMappingURL=style.css.map */

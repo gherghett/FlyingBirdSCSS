@@ -1,0 +1,54 @@
+/*---Our Specifiv animations-----*/
+#cute-bird, 
+#cute-bird ~ .trail {
+    animation-name: fly-around;
+    animation-duration:  5s;
+    animation-iteration-count: infinite;
+}
+
+#wild-bird, 
+#wild-bird ~ .trail {
+    animation-name: fly-wild;
+    animation-timing-function: linear;
+    animation-duration:  2s;
+    animation-iteration-count: infinite;
+}
+/*---------------*/
+
+.flyer{ /* the bird*/
+    z-index : 10;
+    position: absolute;
+}
+.trail { /* all the followers */
+    position: absolute;
+}
+
+@for $i from 1 through 10 {
+    .trail:nth-child(#{$i + 1}) { // i + 1 bc .flyer is the 1th child
+        animation-delay: #{0.2 * $i}s;
+        opacity: #{1 - ($i * 0.1)};
+        z-index: #{10 - $i};
+    }
+}
+
+@keyframes fly-around {
+    20% {transform: translate(200px, 200px);}
+    60% { transform: translate(50px, 170px); }
+    100% { transform: translate(0,0);}
+}
+@keyframes fly-wild {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(100px, 199px); }
+    50% { transform: translate(200px, 100px); }
+    80% { transform: translate(50px, 50px); }
+    90% { transform: translate(200px, 25px); }
+    100% { transform: translate(0, 0); }
+  }
+
+.sky {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+}
+  
