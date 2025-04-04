@@ -6,7 +6,7 @@ Detta lilla projekt visar hur man skapar en flyganimerad fågel med ett spår (t
 
 ## 🔍 Problemet
 
-Vi ville skapa en visuell effekt där en fågel (`<img>`) flyger över en bakgrund och lämnar ett svansliknande spår efter sig – ungefär som en rörelse-eko. En vanlig `::after` räcker inte, eftersom vi vill ha flera spår som följer efter fågeln med olika fördröjning och opacitet.
+Vi ville skapa en visuell effekt där en fågel (`🐦`) flyger över en bakgrund och lämnar ett svansliknande spår efter sig – ungefär som en rörelse-eko. En vanlig `::after` räcker inte, eftersom vi vill ha flera spår som följer efter fågeln med olika fördröjning och opacitet.
 
 ---
 
@@ -14,7 +14,7 @@ Vi ville skapa en visuell effekt där en fågel (`<img>`) flyger över en bakgru
 
 Vi löste detta genom att:
 
-1. **Använda JavaScript** för att automatiskt skapa 9 klonade `<img>`-element (spår) för varje element med klassen `.with-trail`.
+1. **Använda JavaScript** för att automatiskt skapa 9 klonade `<div>🐦</div>`-element (spår) för varje element med klassen `.with-trail`.
 2. **Styling och animation** sker med CSS/SASS:
    - Alla spår är `position: absolute` så de startar på exakt samma plats som originalet.
    - Varje spår får olika `animation-delay`, `opacity` och `z-index` via en SASS-loop.
@@ -31,7 +31,14 @@ Vi löste detta genom att:
 ### 🧵 Varför SASS är bättre än vanlig CSS
 
 För att ge varje spår en unik `animation-delay`, `opacity` och `z-index`, hade vi behövt skriva detta i **vanlig CSS** så här:
-
+```html
+<div id="cute-bird" class="flyer with-trail" >🐦</div>
+<div class="trail">🐦</div>
+<div class="trail">🐦</div>
+<div class="trail">🐦</div>
+<div class="trail">🐦</div>
+osv
+```
 ```css
 .trail:nth-child(2) {
   animation-delay: 0.2s;
