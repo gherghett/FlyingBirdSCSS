@@ -8,10 +8,10 @@
 </head>
 <body>
     <div class="sky">
-        <img id="cute-bird" class="flyer with-trail" src="bird.png" alt="">
+        <div id="cute-bird" class="flyer with-trail" >🐦</div>
     </div>
     <div class="sky">
-        <img id="wild-bird" class="flyer with-trail" src="bird.png" alt="">
+        <div id="wild-bird" class="flyer with-trail" >🐦</div>
     </div>
 </body>
 <script>
@@ -19,9 +19,8 @@
 
     elementsWithTrail.forEach(el => {
         for (let i = 0; i < 9; i++) {
-            const trail = document.createElement('img');
-            trail.src = el.src; // copy the same image
-            trail.alt = el.alt;
+            const trail = document.createElement('div');
+            trail.innerHTML = el.innerHTML;
             trail.className = 'trail';
 
             el.parentNode.insertBefore(trail, el.nextSibling);
